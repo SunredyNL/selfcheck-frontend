@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
-
+import AddData from "./pages/AddDataPage";
 function App() {
   return (
     <>
@@ -21,6 +21,14 @@ function App() {
           element={
             <PrivateRoute>
               <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/:username/addData'
+          element={
+            <PrivateRoute>
+              <AddData />
             </PrivateRoute>
           }
         />

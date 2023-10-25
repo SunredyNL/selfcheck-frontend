@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { isAuthenticated } = useContext(AuthContext);
-
+  const username = localStorage.getItem("username")
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    localStorage.removeItem("authToken")
+    localStorage.removeItem("username")
+    navigate(`/login`)
+    window.location.reload(false);
+  }
   return (
     <nav>
       <p>
@@ -24,7 +31,17 @@ const Navbar = () => {
 
       {isAuthenticated && (
         <p>
-          <Link to="/profile">Profile</Link>
+          <Link to={`/${username}/profile`}>Profile</Link>
+        </p>
+      )}
+      {isAuthenticated && (
+        <p>
+          <Link to={`/${username}/addData`}>Add data</Link>
+        </p>
+      )}
+      {isAuthenticated && (
+        <p>
+          <button onClick={() => { handleLogout() }}>Sign out</button>
         </p>
       )}
     </nav>
