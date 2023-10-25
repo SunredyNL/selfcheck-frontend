@@ -41,6 +41,11 @@ const Navbar = () => {
       )}
       {isAuthenticated && (
         <p>
+          <Link to={`/${username}/BudgetTrack`}>Overview</Link>
+        </p>
+      )}
+      {isAuthenticated && (
+        <p>
           <button onClick={() => { handleLogout() }}>Sign out</button>
         </p>
       )}

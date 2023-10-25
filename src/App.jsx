@@ -7,6 +7,7 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import AddData from "./pages/AddDataPage";
+import BudgetTrackPage from "./pages/BudgetTrackPage";
 function App() {
   return (
     <>
@@ -29,6 +30,14 @@ function App() {
           element={
             <PrivateRoute>
               <AddData />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/:username/BudgetTrack'
+          element={
+            <PrivateRoute>
+              <BudgetTrackPage />
             </PrivateRoute>
           }
         />
