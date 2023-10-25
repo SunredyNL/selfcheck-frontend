@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 const BudgetTrackPage = () => {
   const token = localStorage.getItem("authToken");
-  const username = localStorage.getItem("username");
+
+  const { currentUser } = useContext(AuthContext)
 
   const [user, setUser] = useState({});
   const [incomes, setIncomes] = useState([]);
@@ -11,7 +13,7 @@ const BudgetTrackPage = () => {
   const fetchUser = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/user/${username}`,
+        `${import.meta.env.VITE_API_URL}/api/user/${currentUser}`,
         {
           method: "GET",
           headers: {
@@ -45,7 +47,6 @@ const BudgetTrackPage = () => {
       }
     });
     yearArray.sort((a, b) => a - b);
-    console.log(yearArray);
     return yearArray;
   };
 
@@ -62,7 +63,6 @@ const BudgetTrackPage = () => {
       }
     });
     monthArray.sort((a, b) => a - b);
-    console.log(monthArray);
     return monthArray;
   };
 

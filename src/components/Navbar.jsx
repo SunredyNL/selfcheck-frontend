@@ -4,14 +4,13 @@ import { AuthContext } from "../contexts/AuthContext";
 
 const Navbar = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  const username = localStorage.getItem("username")
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem("authToken")
-    localStorage.removeItem("username")
-    navigate(`/login`)
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("username");
+    navigate(`/login`);
     window.location.reload(false);
-  }
+  };
   return (
     <nav>
       <p>
@@ -30,24 +29,29 @@ const Navbar = () => {
       )}
 
       {isAuthenticated && (
-        <p>
-          <Link to={`/${username}/profile`}>Profile</Link>
-        </p>
-      )}
-      {isAuthenticated && (
-        <p>
-          <Link to={`/${username}/addData`}>Add data</Link>
-        </p>
-      )}
-      {isAuthenticated && (
-        <p>
-          <Link to={`/${username}/BudgetTrack`}>Overview</Link>
-        </p>
-      )}
-      {isAuthenticated && (
-        <p>
-          <button onClick={() => { handleLogout() }}>Sign out</button>
-        </p>
+        <>
+          <p>
+            <Link to={`/user/profile`}>Profile</Link>
+          </p>
+
+          <p>
+            <Link to={`/user/addData`}>Add data</Link>
+          </p>
+
+          <p>
+            <Link to={`/user/budgetTrack`}>Overview</Link>
+          </p>
+          
+          <p>
+            <button
+              onClick={() => {
+                handleLogout();
+              }}
+            >
+              Sign out
+            </button>
+          </p>
+        </>
       )}
     </nav>
   );

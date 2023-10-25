@@ -18,7 +18,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path='/:username/profile'
+          path='/user/profile'
           element={
             <PrivateRoute>
               <ProfilePage />
@@ -26,7 +26,7 @@ function App() {
           }
         />
         <Route
-          path='/:username/addData'
+          path='/user/addData'
           element={
             <PrivateRoute>
               <AddData />
@@ -34,7 +34,7 @@ function App() {
           }
         />
         <Route
-          path='/:username/BudgetTrack'
+          path='/user/budgetTrack'
           element={
             <PrivateRoute>
               <BudgetTrackPage />
