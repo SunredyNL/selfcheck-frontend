@@ -30,7 +30,8 @@ const LoginPage = () => {
       if (response.status === 200) {
         const parsed = await response.json()
         handleLogin(parsed.token)
-        navigate('/profile')
+        window.localStorage.setItem("username", username)
+        navigate(`/${username}/profile`)
       }
     } catch (error) {
       console.log(error)

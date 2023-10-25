@@ -17,7 +17,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path='/profile'
+          path='/:username/profile'
           element={
             <PrivateRoute>
               <ProfilePage />
