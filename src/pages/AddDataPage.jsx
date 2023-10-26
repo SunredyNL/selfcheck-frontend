@@ -5,19 +5,18 @@ const AddExpensePage = () => {
   const token = localStorage.getItem("authToken");
 
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser)
 
   const [userId, setUserId] = useState("");
-  const [user, setUser] = useState({});
-  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
   const [value, setValue] = useState(0);
   const [month, setMonth] = useState("");
-  const [year, setYear] = useState(0);
   const payload = {
-    name,
+    category,
+    description,
     value,
-    user: `${userId}`,
-    month,
-    year,
+    month:`${monthId}`
   };
   const fetchUser = async () => {
     try {

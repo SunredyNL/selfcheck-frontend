@@ -33,7 +33,9 @@ const Navbar = () => {
           <p>
             <Link to={`/user/profile`}>Profile</Link>
           </p>
-
+          <p>
+            <Link to={`/user/years`}>Years</Link>
+          </p>
           <p>
             <Link to={`/user/addData`}>Add data</Link>
           </p>

@@ -19,7 +19,7 @@ const AuthContextProvider = ({ children }) => {
                 setToken(currentToken)
                 setIsAuthenticat(true)
                 const parsed = await response.json()
-                console.log(parsed)
+                console.log("hello", parsed)
                 setCurrentUser(parsed.userId)
                 window.localStorage.setItem("authToken", currentToken)
             }

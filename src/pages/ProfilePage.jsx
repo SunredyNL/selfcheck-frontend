@@ -1,10 +1,13 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { UserContext } from "../contexts/UserContext";
 
 const ProfilePage = () => {
   const token = localStorage.getItem("authToken");
 
   const { currentUser } = useContext(AuthContext);
+  const { userData } = useContext(UserContext);
+  console.log(userData);
 
   const [user, setUser] = useState({});
   const fetchUser = async () => {
