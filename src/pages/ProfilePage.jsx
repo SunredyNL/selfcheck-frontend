@@ -7,7 +7,6 @@ const ProfilePage = () => {
 
   const { currentUser } = useContext(AuthContext);
   const { userData } = useContext(UserContext);
-  console.log(userData);
 
   const [user, setUser] = useState({});
   const fetchUser = async () => {

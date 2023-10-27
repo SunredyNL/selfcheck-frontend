@@ -6,9 +6,10 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
-import AddData from "./pages/AddDataPage";
-import BudgetTrackPage from "./pages/BudgetTrackPage";
 import YearsPage from "./pages/YearsPage";
+import MonthsPage from "./pages/MonthsPage";
+import DataPage from "./pages/DataPage";
+
 function App() {
   return (
     <>
@@ -19,7 +20,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-          path='/user/profile'
+          path="/user/profile"
           element={
             <PrivateRoute>
               <ProfilePage />
@@ -27,7 +28,7 @@ function App() {
           }
         />
         <Route
-          path='/user/years'
+          path="/user/years"
           element={
             <PrivateRoute>
               <YearsPage />
@@ -35,18 +36,18 @@ function App() {
           }
         />
         <Route
-          path='/user/addData'
+          path="/user/:yearId/months"
           element={
             <PrivateRoute>
-              <AddData />
+              <MonthsPage />
             </PrivateRoute>
           }
         />
         <Route
-          path='/user/budgetTrack'
+          path="/user/:monthId/data"
           element={
             <PrivateRoute>
-              <BudgetTrackPage />
+              <DataPage />
             </PrivateRoute>
           }
         />

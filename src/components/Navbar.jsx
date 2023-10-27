@@ -34,16 +34,9 @@ const Navbar = () => {
             <Link to={`/user/profile`}>Profile</Link>
           </p>
           <p>
-            <Link to={`/user/years`}>Years</Link>
-          </p>
-          <p>
-            <Link to={`/user/addData`}>Add data</Link>
+            <Link to={`/user/years`}>Budget Track</Link>
           </p>
 
-          <p>
-            <Link to={`/user/budgetTrack`}>Overview</Link>
-          </p>
-          
           <p>
             <button
               onClick={() => {

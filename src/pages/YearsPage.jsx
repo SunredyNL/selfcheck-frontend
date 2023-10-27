@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 const YearsPage = () => {
   const token = localStorage.getItem("authToken");
@@ -7,24 +8,23 @@ const YearsPage = () => {
   const { currentUser } = useContext(AuthContext);
 
   const [name, setName] = useState("");
+  const [years, setYears] = useState([]);
+
   const payload = {
     name,
-    user: `${currentUser}`
-  }
+    user: `${currentUser}`,
+  };
 
   const addYear = async () => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/year`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/year`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
       if (response.ok) {
         const currYear = await response.json();
         console.log(currYear);
@@ -33,6 +33,7 @@ const YearsPage = () => {
       console.log(error);
     }
   };
+
   const fetchYears = async () => {
     try {
       const response = await fetch(
@@ -48,11 +49,13 @@ const YearsPage = () => {
       if (response.ok) {
         const allYears = await response.json();
         console.log("chicorita", allYears);
+        setYears(allYears);
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchYears();
   }, []);
@@ -78,8 +81,16 @@ const YearsPage = () => {
           Add year
         </button>
       </form>
+
+      {years.map((oneYear) => {
+        return (
+          <Link to={`/user/${oneYear._id}/months`} key={oneYear._id}>
+            <p>{oneYear.name}</p>
+          </Link>
+        );
+      })}
     </>
   );
-}
+};
 
 export default YearsPage;

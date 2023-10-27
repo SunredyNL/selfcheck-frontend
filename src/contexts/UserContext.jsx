@@ -6,7 +6,6 @@ const UserContextProvider = ({ children }) => {
   const token = localStorage.getItem("authToken");
 
   const { currentUser } = useContext(AuthContext);
-  console.log("look at this", currentUser);
 
   const [isLoading, setIsLoading] = useState(true);
   const [userData, setUserData] = useState({});
@@ -24,7 +23,6 @@ const UserContextProvider = ({ children }) => {
       );
       if (response.ok) {
         const parsed = await response.json();
-        console.log("Bye", parsed);
         setUserData(parsed);
       }
     } catch (error) {
