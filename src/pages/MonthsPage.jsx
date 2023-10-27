@@ -58,6 +58,25 @@ const MonthsPage = () => {
     }
   };
 
+  const deleteMonth = async (oneMonth) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/month/${oneMonth._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.ok) {
+        location.reload();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchMonth();
   }, []);
@@ -86,9 +105,19 @@ const MonthsPage = () => {
 
       {months.map((oneMonth) => {
         return (
-          <Link to={`/user/${oneMonth._id}/data`} key={oneMonth._id}>
-            <p>{oneMonth.name}</p>
-          </Link>
+          <div key={oneMonth._id}>
+            <Link to={`/user/${oneMonth._id}/data`} >
+              <p>{oneMonth.name}</p>
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                deleteMonth(oneMonth);
+              }}
+            >
+              Delete month
+            </button>
+          </div>
         );
       })}
     </>

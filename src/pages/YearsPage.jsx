@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const YearsPage = () => {
   const token = localStorage.getItem("authToken");
@@ -56,6 +56,25 @@ const YearsPage = () => {
     }
   };
 
+  const deleteYear = async (oneYear) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/year/${oneYear._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.ok) {
+        location.reload();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchYears();
   }, []);
@@ -84,9 +103,19 @@ const YearsPage = () => {
 
       {years.map((oneYear) => {
         return (
-          <Link to={`/user/${oneYear._id}/months`} key={oneYear._id}>
-            <p>{oneYear.name}</p>
-          </Link>
+          <div key={oneYear._id}>
+            <Link to={`/user/${oneYear._id}/months`}>
+              <p>{oneYear.name}</p>
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                deleteYear(oneYear);
+              }}
+            >
+              Delete year
+            </button>
+          </div>
         );
       })}
     </>
