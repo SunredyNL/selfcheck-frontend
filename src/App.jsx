@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
-import YearsPage from "./pages/YearsPage";
+import YearsPage from "./pages/YearsPage/YearsPage";
 import MonthsPage from "./pages/MonthsPage";
 import DataPage from "./pages/DataPage";
 
