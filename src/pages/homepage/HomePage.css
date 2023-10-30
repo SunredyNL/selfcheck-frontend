@@ -1,0 +1,142 @@
+body {
+    background-color: #fbf7f5;
+    margin: 0;
+}
+
+@media screen and (max-width:768px) {
+.savingGif {
+    display: none;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #35a79c;
+    color: #fbf7f5;
+    width: 70vw;
+    font-size: 2rem;
+    padding: 5px;
+    border-radius: 0px 25px 25px 0px;
+    margin-bottom: 2vh;
+}
+.descr {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top:0;
+    background-color: #ecb939;
+    color: #fbf7f5;
+    width: 90vw;
+    height: 20vh;
+    font-size: 2rem;
+    padding: 5px;
+    border-radius: 0px 25px 25px 0px;
+}
+.buttons {
+    margin-top:2vh;
+    display: flex;
+    gap: 4vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.HPbtn {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    color: #fbf7f5;
+    background: #35a79c;
+    line-height: 1.15;
+    font-size: 2rem;
+    width: 60vw;
+    height: 10vh;
+}
+.comments{
+    margin-top:3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap:0.5vh
+}
+
+.oneComment{
+    background-color: white;
+    border: solid 1px black;
+    font-size: 0.5rem;
+    width: 70vw;
+    margin-left:13vw;
+}
+
+}
+@media screen and (min-width:768px){
+.container {
+    display: flex;
+    align-content: center;
+    margin-left: 30vw;
+}
+.savingGif{
+    height: 35vh;
+}
+.intro {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fbfbfb;
+    border: solid 1px #ecb939;
+}
+.buttons{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    margin-left:1vw;
+    gap:5vh;
+    background-color: #f0c75e;
+    border: solid 1px #ecb939;
+}
+
+.HPbtn {
+    text-align: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    color: #fbf7f5;
+    background: #35a79c;
+    line-height: 1.15;
+    font-size: 1rem;
+    width: 10vw;
+    height: 7vh;
+    margin-top: 8vh;
+}
+.HPbtn:hover{
+    background-color: #009688;
+}
+.comments{
+    gap:3vw;
+    margin-top:15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.oneComment {
+    background-color: white;
+    font-size: 1rem;
+    border-radius: 30%;
+    border: solid 1px black;
+    padding: 20px;
+}
+.commentWhat{
+    font-weight: bold;
+}
+.welcome {
+    font-weight: bold;
+}
+}

@@ -7,7 +7,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    localStorage.removeItem("username");
     navigate(`/login`);
     window.location.reload(false);
   };

@@ -1,9 +1,8 @@
-import "./App.css";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/loginpage/LoginPage";
+import HomePage from "./pages/homepage/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import YearsPage from "./pages/YearsPage";
