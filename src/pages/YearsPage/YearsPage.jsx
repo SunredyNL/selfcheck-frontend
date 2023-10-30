@@ -12,9 +12,14 @@ const YearsPage = () => {
 
   const [name, setName] = useState("");
   const [years, setYears] = useState([]);
+  const [months, setMonths] = useState([]);
   const [showCheckbox, setshowCheckbox] = useState(false);
 
+  const [yearMonths, setYearMonths] = useState({});
+
   const [error, setError] = useState("");
+
+  let yearId = "";
 
   const payload = {
     name,
@@ -39,6 +44,7 @@ const YearsPage = () => {
     }
   };
 
+  /*FUNCTION TO ADD A YEAR*/
   const fetchYears = async () => {
     try {
       const response = await fetch(
@@ -61,6 +67,7 @@ const YearsPage = () => {
     }
   };
 
+  /*FUNCTION TO DELETE A YEAR*/
   const deleteYear = async (oneYear) => {
     try {
       const response = await fetch(
@@ -101,6 +108,7 @@ const YearsPage = () => {
         {years
           .sort((a, b) => b.name - a.name)
           .map((oneYear) => {
+            const trackedMonths = oneYear.month;
             return (
               <div key={oneYear._id} className="YearCard">
                 <Link to={`/user/${oneYear._id}/months`}>
@@ -108,7 +116,7 @@ const YearsPage = () => {
                     <h2>{oneYear.name}</h2>
                     <p>Income: 20.000€</p>
                     <p>Expenses: 12.000€</p>
-                    <p>Months tracked: 6</p>
+                    <p>Months tracked: {trackedMonths.length}</p>
                   </div>
                 </Link>
                 <button
@@ -117,7 +125,7 @@ const YearsPage = () => {
                     deleteYear(oneYear);
                   }}
                 >
-                  <img src={trashIcon}></img>
+                  <img src={trashIcon} />
                 </button>
               </div>
             );

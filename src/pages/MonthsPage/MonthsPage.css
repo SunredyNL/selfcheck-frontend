@@ -8,14 +8,14 @@ h1 {
   font-size: 52px;
 }
 
-.AddYearFormCheckbox {
+.AddMonthFormCheckbox {
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 1rem;
 }
 
-.AddYearFormCheckbox > button {
+.AddMonthFormCheckbox > button {
   background-color: #ecb939;
   color: #fbf7f5;
   display: inline-block;
@@ -29,32 +29,32 @@ h1 {
   text-align: center;
 }
 
-.AddYearFormCheckbox > button:hover {
+.AddMonthFormCheckbox > button:hover {
   background-color: #f0c75e;
 }
 
-.YearForm form {
+.MonthForm form {
   display: flex;
   flex-direction: row;
   align-items: center;
   column-gap: 1rem;
 }
 
-.YearForm input {
+.MonthForm select {
+  width: 8rem;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.MonthForm button {
   width: 4rem;
   padding: 0.3rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
 
-.YearForm button {
-  width: 4rem;
-  padding: 0.3rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-}
-
-.MultiYearCards {
+.MultiMonthCards {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -63,7 +63,7 @@ h1 {
   margin: 2rem 2rem;
 }
 
-.YearCard {
+.MonthCard {
   position: relative;
   text-align: center;
   width: 18rem;
@@ -75,16 +75,16 @@ h1 {
   background-color: #fbf7f5;
 }
 
-.YearCard p {
+.MonthCard p {
   text-align: left;
   color: black;
 }
 
-.YearCard a {
+.MonthCard a {
   text-decoration: none;
 }
 
-.YearCard button {
+.MonthCard button {
   position: absolute;
   right: 0;
   top: 0.3rem;
@@ -93,7 +93,7 @@ h1 {
   filter: opacity(20%);
 }
 
-.YearCard button:hover {
+.MonthCard button:hover {
   display: block;
   position: absolute;
   right: 0;
@@ -103,7 +103,7 @@ h1 {
   filter: opacity(100%);
 }
 
-.YearCard > button > img {
+.MonthCard > button > img {
   width: 1.5rem;
   height: auto;
 }

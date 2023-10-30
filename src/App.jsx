@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import YearsPage from "./pages/YearsPage/YearsPage";
-import MonthsPage from "./pages/MonthsPage";
+import MonthsPage from "./pages/MonthsPage/MonthsPage";
 import DataPage from "./pages/DataPage";
 
 function App() {
