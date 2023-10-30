@@ -17,7 +17,7 @@ const MonthsPage = () => {
   const addMonth = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/month`,
+        `${import.meta.env.VITE_API_URL}/api/month/${monthId}`,
         {
           method: "POST",
           headers: {

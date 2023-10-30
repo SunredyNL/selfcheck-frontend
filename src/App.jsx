@@ -8,12 +8,12 @@ import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
 import YearsPage from "./pages/YearsPage";
 import MonthsPage from "./pages/MonthsPage";
-import DataPage from "./pages/DataPage";
+import DataPage from "./pages/DataPage/DataPage";
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
