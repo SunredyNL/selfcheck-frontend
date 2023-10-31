@@ -6,6 +6,7 @@ import SavingGif from "../../assets/saving.gif";
 const HomePage = () => {
   const { currentUser } = useContext(AuthContext);
   const { isAuthenticated } = useContext(AuthContext);
+  //fake comments
   const comments = [
     {
       name: "Dwarves",

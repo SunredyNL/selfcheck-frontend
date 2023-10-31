@@ -11,7 +11,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  //Function to submit login details
   const handleSubmit = async (event) => {
     event.preventDefault();
     const payload = { username, password };
@@ -52,7 +52,7 @@ const LoginPage = () => {
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               required
-              placeholder="email"
+              placeholder="username"
             />
           </label>
           <label>

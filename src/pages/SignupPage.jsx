@@ -6,7 +6,7 @@ const SignupPage = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  //Function to handle submit of login form
   const handleSubmit = async (event) => {
     event.preventDefault();
     const payload = { username, password };

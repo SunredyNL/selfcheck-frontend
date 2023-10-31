@@ -1,14 +1,14 @@
 body {
-    background-color: #fbf7f5;
-    margin: 0;
+  background-color: #fbf7f5;
 }
 
-@media screen and (max-width:768px) {
-.savingGif {
+@media screen and (max-width: 768px) {
+  .savingGif {
     display: none;
-}
+  }
 
-.welcome {
+  .welcome {
+    margin-top: 15vh;
     display: flex;
     align-items: center;
     text-align: center;
@@ -17,14 +17,15 @@ body {
     width: 70vw;
     font-size: 2rem;
     padding: 5px;
-    border-radius: 0px 25px 25px 0px;
+    border-radius: 25px 25px 25px 25px;
     margin-bottom: 2vh;
-}
-.descr {
+    margin-left: 10vw;
+  }
+  .descr {
     display: flex;
     align-items: center;
     text-align: center;
-    margin-top:0;
+    margin-top: 0;
     background-color: #ecb939;
     color: #fbf7f5;
     width: 90vw;
@@ -32,16 +33,16 @@ body {
     font-size: 2rem;
     padding: 5px;
     border-radius: 0px 25px 25px 0px;
-}
-.buttons {
-    margin-top:2vh;
+  }
+  .buttons {
+    margin-top: 2vh;
     display: flex;
     gap: 4vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.HPbtn {
+  }
+  .HPbtn {
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -54,53 +55,53 @@ body {
     font-size: 2rem;
     width: 60vw;
     height: 10vh;
-}
-.comments{
-    margin-top:3vh;
+  }
+  .comments {
+    margin-top: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    gap:0.5vh
-}
+    gap: 0.5vh;
+  }
 
-.oneComment{
+  .oneComment {
     background-color: white;
     border: solid 1px black;
     font-size: 0.5rem;
     width: 70vw;
-    margin-left:13vw;
+    margin-left: 13vw;
+  }
 }
-
-}
-@media screen and (min-width:768px){
-.container {
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 3.7vh;
     display: flex;
     align-content: center;
     margin-left: 30vw;
-}
-.savingGif{
+  }
+  .savingGif {
     height: 35vh;
-}
-.intro {
+  }
+  .intro {
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fbfbfb;
     border: solid 1px #ecb939;
-}
-.buttons{
+  }
+  .buttons {
     display: flex;
     padding: 20px;
     flex-direction: column;
-    margin-left:1vw;
-    gap:5vh;
+    margin-left: 1vw;
+    gap: 5vh;
     background-color: #f0c75e;
     border: solid 1px #ecb939;
-}
+  }
 
-.HPbtn {
+  .HPbtn {
     text-align: center;
     align-items: center;
     outline: none;
@@ -115,28 +116,28 @@ body {
     width: 10vw;
     height: 7vh;
     margin-top: 8vh;
-}
-.HPbtn:hover{
+  }
+  .HPbtn:hover {
     background-color: #009688;
-}
-.comments{
-    gap:3vw;
-    margin-top:15vh;
+  }
+  .comments {
+    gap: 3vw;
+    margin-top: 15vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-.oneComment {
+  }
+  .oneComment {
     background-color: white;
     font-size: 1rem;
     border-radius: 30%;
     border: solid 1px black;
     padding: 20px;
-}
-.commentWhat{
+  }
+  .commentWhat {
     font-weight: bold;
-}
-.welcome {
+  }
+  .welcome {
     font-weight: bold;
-}
+  }
 }
