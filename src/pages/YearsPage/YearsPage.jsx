@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-router-dom";
 import trashIcon from "../../assets/trash.png";
+import backArrow from "../../assets/back.png";
 
 const YearsPage = () => {
   const token = localStorage.getItem("authToken");
@@ -93,7 +94,12 @@ const YearsPage = () => {
 
   return (
     <div>
-      <h1>Overview</h1>
+      <section className="YearHeader">
+        <Link to={`/user/profile`}>
+          <img src={backArrow} />
+        </Link>
+        <h1>Overview</h1>
+      </section>
       <AddYearExpand
         addYear={addYear}
         name={name}
