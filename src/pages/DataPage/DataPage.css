@@ -1,0 +1,109 @@
+button {
+  cursor: pointer;
+}
+
+.dataPageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ADD DATA FORM */
+.AddDataFormCheckboxButton {
+  background-color: lightgray;
+  display: inline-block;
+  border: none;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem 0.2rem;
+  margin: 0 2rem 0;
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+}
+
+.addDataForm {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: darkkhaki;
+  height: 15vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addDataForm label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.5rem;
+  width: 30vh;
+  margin: 0.5rem;
+}
+
+.addDataForm label input,
+.addDataForm label select {
+  width: 7rem;
+}
+
+.addDataForm button {
+  width: 5rem;
+}
+
+/* DISPLAY DATA*/
+/* SHOWN DATA*/
+.dataTypeBox {
+  border: 1px solid;
+  margin: 1rem;
+  padding: 1rem;
+  width: 80vw;
+}
+
+.dataBox {
+  border: 1px solid;
+  margin: 0.2rem 0 0.2rem;
+  padding: 0 1rem 0;
+}
+
+.dataBox section {
+  background-color: azure;
+  height: 1.7rem;
+  display: flex;
+  align-items: center;
+}
+
+.dataBoxShown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.dataBoxDescription {
+  width: 10rem;
+}
+
+.dataBoxValue {
+  width: 4rem;
+}
+
+.dataBoxButton {
+  justify-content: end;
+}
+
+/* DISPLAY DATA*/
+.dataBoxHidden {
+  display: flex;
+  flex-direction: column;
+}
+
+.dataBoxHidden input {
+  width: 5rem;
+}
+
+.updateDataForm {
+  display: flex;
+  flex-direction: column;
+}
