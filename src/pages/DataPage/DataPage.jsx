@@ -143,6 +143,14 @@ const DataPage = () => {
   const groupedData = groupDataByCategory(data);
   const sortedCategories = Object.keys(groupedData).sort().reverse();
 
+  /* CALCULATE THE TOTALS */
+  const calculateCategoryTotal = (cat) => {
+    return groupedData[cat].reduce(
+      (total, oneData) => total + oneData.value,
+      0
+    );
+  };
+
   return (
     <div className="dataPageBox">
       {months.map((element) => {
@@ -209,9 +217,11 @@ const DataPage = () => {
       )}
 
       {sortedCategories.map((category) => {
+        const categoryTotal = calculateCategoryTotal(category);
+
         return (
-          <div key={category} className="dataTypeBox">
-            <h2>{category}</h2>
+          <div key={category} className="dataTypeBox" data-category={category}>
+            <h2>{category}s</h2>
 
             {groupedData[category].map((oneData, index) => {
               return <DataBox key={index} oneData={oneData} />;
@@ -223,7 +233,7 @@ const DataPage = () => {
               </section>
 
               <section className="dataBoxValue">
-                <p>3000 €</p>
+                <p>{categoryTotal} €</p>
               </section>
             </div>
           </div>

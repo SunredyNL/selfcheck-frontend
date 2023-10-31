@@ -1,5 +1,6 @@
 button {
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 .dataPageBox {
@@ -10,6 +11,11 @@ button {
   padding: 0;
 }
 
+.dataPageBox h1 {
+  margin: 1rem 0 1rem;
+  font-size: 2.5rem;
+}
+
 /* ADD DATA FORM */
 .AddDataFormCheckboxButton {
   background-color: #ecb939;
@@ -18,7 +24,7 @@ button {
   border: none;
   border-radius: 50%;
   padding: 0.2rem 0.5rem 0.2rem;
-  margin: 0 2rem 0;
+  margin: 1rem;
   height: 3rem;
   width: 3rem;
   font-size: 2rem;
@@ -30,15 +36,17 @@ button {
 }
 
 .addDataForm {
+  background-color: rgba(211, 211, 211, 0.2);
+  border: 1px solid lightgray;
   margin: 1rem;
   padding: 1rem;
-  background-color: darkkhaki;
   height: 15vh;
-  width: 80vw;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 1rem;
 }
 
 .addDataForm label {
@@ -56,16 +64,40 @@ button {
 }
 
 .addDataForm button {
-  width: 5rem;
+  width: 4.5rem;
+  appearance: none;
+  border:none;
+  border-radius: 1rem;
+  background-color: gray;
+  color: white;
+  margin-top: 0.5rem;
 }
 
-/* DISPLAY DATA*/
+.addDataForm button:hover{
+  background-color: lightgray;
+}
+
 /* SHOWN DATA*/
 .dataTypeBox {
-  border: 1px solid lightgray;
   margin: 1rem;
   padding: 1rem;
-  width: 80vw;
+  width: 20rem;
+  border-radius: 1rem;
+}
+
+.dataTypeBox[data-category="Income"] {
+  border: 1px solid rgba(53, 167, 156);
+  background-color: rgba(53, 167, 156, 0.2);
+}
+
+.dataTypeBox[data-category="Expense"] {
+  border: 1px solid rgba(236, 185, 57);
+  background-color: rgba(236, 185, 57, 0.2);
+}
+
+.dataTypeBox h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .dataTypeBox button {
@@ -77,9 +109,15 @@ button {
 }
 
 .dataBox {
-  border-bottom: 1px solid lightgray;
-  margin: 0.4rem 0 0.4rem;
-  padding: 0 1rem 0;
+  padding: 0.5rem 1rem 0.5rem;
+}
+
+.dataBox[data-category="Income"] {
+  border-bottom: 1px solid rgba(53, 167, 156);
+}
+
+.dataBox[data-category="Expense"] {
+  border-bottom: 1px solid rgba(236, 185, 57);
 }
 
 .dataBox section {
@@ -122,14 +160,53 @@ button {
   width: 5rem;
 }
 
+/* DATA BOX BUTTONS AND BUTTON EFFECTS */
 .dataBoxButton {
-  justify-content: end;
   margin-left: 0.5rem;
+  border: none;
+  background-color: transparent;
+  filter: opacity(20%);
+}
+
+.dataBoxButton img {
+  height: 1.2rem;
+  width: auto;
+}
+
+.dataBoxButton:hover {
+  border: none;
+  background-color: transparent;
+  filter: opacity(100%);
+}
+
+.dataBoxButtonActive {
+  border: none;
+  background-color: transparent;
+  filter: opacity(100%);
+}
+
+.dataBoxButtonActive img {
+  height: 1.2rem;
+  width: auto;
 }
 
 /* DATA HIDDEN */
-.dataBoxHidden input {
-  width: 5rem;
+.dataBoxHidden {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.dataBoxHidden[data-category="Income"] {
+  background-color: rgba(53, 167, 156, 0.2);
+}
+
+.dataBoxHidden[data-category="Expense"] {
+  background-color: rgba(236, 185, 57, 0.2);
+}
+
+.dataBoxHidden p {
+  margin: 0 0 1rem 0;
 }
 
 .updateDataForm {
@@ -152,14 +229,9 @@ button {
 }
 
 .updateDataFormText p {
-  margin-right: 1rem;
+  margin: 0 1rem 0 0;
 }
 
 .updateDataFormText input {
   width: 7rem;
-}
-
-.updateDataFormButton {
-  display: flex;
-  flex-direction: column;
 }

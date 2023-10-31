@@ -1,4 +1,7 @@
 import { useState } from "react";
+import editIcon from "../../../assets/edit.png";
+import trashIcon from "../../../assets/trash.png";
+import updateIcon from "../../../assets/update.png";
 
 const DataBox = ({ oneData }) => {
   const token = localStorage.getItem("authToken");
@@ -56,44 +59,48 @@ const DataBox = ({ oneData }) => {
   };
 
   return (
-    <div key={oneData._id}>
-      <div className="dataBox">
-        <div className="dataBoxShown">
-          <div>
-            <section className="dataBoxDescription">
-              <p>{oneData.description}</p>
-            </section>
+    <div className="dataBox" data-category={oneData.category} key={oneData._id}>
+      <div className="dataBoxShown">
+        <div>
+          <section className="dataBoxDescription">
+            <p>{oneData.description}</p>
+          </section>
 
-            <section className="dataBoxValue">
-              <p>{oneData.value} €</p>
-            </section>
-          </div>
-
-          <div>
-            <section className="dataBoxButton">
-              <button
-                type="button"
-                onClick={() => setShowCheckbox(!showCheckbox)}
-              >
-                {showCheckbox ? "-" : "+"}
-              </button>
-            </section>
-
-            <section className="dataBoxButton">
-              <button
-                type="button"
-                onClick={() => {
-                  deleteData(oneData);
-                }}
-              >
-                x
-              </button>{" "}
-            </section>
-          </div>
+          <section className="dataBoxValue">
+            <p>{oneData.value} €</p>
+          </section>
         </div>
 
         <div>
-          {showCheckbox && (
+          <section>
+            <button
+              type="button"
+              onClick={() => setShowCheckbox(!showCheckbox)}
+              className={showCheckbox ? "dataBoxButtonActive" : "dataBoxButton"}
+              data-category={oneData.category}
+            >
+              <img src={editIcon} />
+            </button>
+          </section>
+
+          <section>
+            <button
+              type="button"
+              onClick={() => {
+                deleteData(oneData);
+              }}
+              className="dataBoxButton"
+              data-category={oneData.category}
+            >
+              <img src={trashIcon} />
+            </button>{" "}
+          </section>
+        </div>
+      </div>
+
+      <div>
+        {showCheckbox && (
+          <div className="dataBoxHidden" data-category={oneData.category}>
             <form className="updateDataForm">
               <div className="updateDataFormText">
                 <label>
@@ -117,19 +124,21 @@ const DataBox = ({ oneData }) => {
                 </label>
               </div>
 
-              <div className="updateDataFormButton">
+              <div>
                 <button
                   type="submit"
                   onClick={() => {
                     dataUpdate(oneData);
                   }}
+                  className="dataBoxButton"
+                  data-category={oneData.category}
                 >
-                  +
+                  <img src={updateIcon} />
                 </button>
               </div>
             </form>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
