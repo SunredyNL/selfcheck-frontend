@@ -8,8 +8,8 @@ const DataBox = ({ oneData }) => {
 
   const [showCheckbox, setShowCheckbox] = useState(false);
 
-  const [updatedDescription, setUpdatedDescription] = useState("");
-  const [updatedValue, setUpdatedValue] = useState(0);
+  const [updatedDescription, setUpdatedDescription] = useState(oneData.description);
+  const [updatedValue, setUpdatedValue] = useState(oneData.value);
 
   const updatedPayload = {
     description: updatedDescription,
