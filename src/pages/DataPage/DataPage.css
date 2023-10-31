@@ -102,3 +102,8 @@ button {
 .dataBoxHidden input {
   width: 5rem;
 }
+
+.updateDataForm {
+  display: flex;
+  flex-direction: column;
+}

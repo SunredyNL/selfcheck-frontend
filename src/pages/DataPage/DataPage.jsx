@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const DataPage = () => {
   const token = localStorage.getItem("authToken");
 
-  const { monthId } = useParams();
+  const { yearId, monthId } = useParams();
 
   const [showCheckbox, setShowCheckbox] = useState(false);
   const [error, setError] = useState("");
@@ -143,7 +143,7 @@ const DataPage = () => {
 
   return (
     <div className="dataPageBox">
-      <h1>{months}</h1>
+      <h1>{months.find((m) => m._id === monthId)?.name}</h1>
 
       <button
         type="button"
