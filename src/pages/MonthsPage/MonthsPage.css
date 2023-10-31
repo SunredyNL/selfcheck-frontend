@@ -5,45 +5,44 @@ body {
 }
 
 .MonthHeader {
+  width: 71.5%;
   display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .MonthHeader a {
   position: absolute;
-  left: 1rem;
+  left: 0rem;
 }
 
 .MonthHeader img {
   height: 1.5rem;
 }
 
-h1 {
-  font-size: 52px;
-}
-
-h2 {
-  color: black;
+.MonthHeader h1 {
+  font-size: 48px;
 }
 
 .AddMonthFormCheckbox {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   row-gap: 1rem;
+  width: 71.5%;
+  margin: 0 auto;
 }
 
 .AddMonthFormCheckbox > button {
   background-color: #ecb939;
   color: #fbf7f5;
-  display: inline-block;
   border: none;
   border-radius: 50%;
   padding: 0.2rem 0.5rem 0.2rem;
-  margin: 0 2rem 0;
+  margin: 0 2rem 0 0;
   height: 3rem;
   width: 3rem;
   font-size: 2rem;
@@ -76,12 +75,12 @@ h2 {
 }
 
 .MultiMonthCards {
+  width: 71.5%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
-  row-gap: 2rem;
-  margin: 2rem 2rem;
+  margin: 2rem auto;
 }
 
 .MonthCard {
@@ -90,9 +89,8 @@ h2 {
   width: 18rem;
   padding: 0 1rem 1rem;
   border: 2px solid #35a79c;
-  border-radius: 8px;
-  box-shadow: 8px 8px 8px #3b504d;
-  margin: 0 2rem;
+  border-radius: 5px;
+  box-shadow: 5px 5px 8px #333635;
   background-color: #fbf7f5;
 }
 
@@ -114,7 +112,8 @@ h2 {
   filter: opacity(20%);
 }
 
-.MonthCard button:hover {
+.MonthCard button:hover,
+.MonthCard button:active {
   display: block;
   position: absolute;
   right: 0;
@@ -127,4 +126,15 @@ h2 {
 .MonthCard > button > img {
   width: 1.5rem;
   height: auto;
+}
+
+.MonthCard hr {
+  color: #cf7ca3;
+  width: 70%;
+}
+
+.MonthCard h2 {
+  margin: 0;
+  padding-top: 1rem;
+  color: #009688;
 }

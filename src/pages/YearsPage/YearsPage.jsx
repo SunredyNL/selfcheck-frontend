@@ -27,6 +27,7 @@ const YearsPage = () => {
     user: `${currentUser}`,
   };
 
+  /*FUNCTION TO ADD A YEAR*/
   const addYear = async () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/year`, {
@@ -45,7 +46,7 @@ const YearsPage = () => {
     }
   };
 
-  /*FUNCTION TO ADD A YEAR*/
+  /*FECTCH ALL THE YEARS FROM THIS USER*/
   const fetchYears = async () => {
     try {
       const response = await fetch(
@@ -128,7 +129,12 @@ const YearsPage = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    deleteYear(oneYear);
+                    const confirmed = window.confirm(
+                      `Do you really want to delete ${oneYear.name}?`
+                    );
+                    if (confirmed) {
+                      deleteYear(oneYear);
+                    }
                   }}
                 >
                   <img src={trashIcon} />
