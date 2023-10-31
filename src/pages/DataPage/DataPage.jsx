@@ -180,6 +180,7 @@ const DataPage = () => {
             <input
               value={description}
               onChange={(event) => setDescription(event.target.value)}
+              maxLength={11}
               required
             />
           </label>
@@ -213,6 +214,18 @@ const DataPage = () => {
             {groupedData[category].map((oneData, index) => {
               return <DataBox key={index} oneData={oneData} />;
             })}
+
+            <div className="dataBox">
+              <div className="dataBoxTotal">
+                <section className="dataBoxDescription">
+                  <p>TOTAL</p>
+                </section>
+
+                <section className="dataBoxValue">
+                  <p>3000 €</p>
+                </section>
+              </div>
+            </div>
           </div>
         );
       })}
