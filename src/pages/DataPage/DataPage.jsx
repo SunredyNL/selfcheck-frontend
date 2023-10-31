@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const DataPage = () => {
   const token = localStorage.getItem("authToken");
 
-  const { yearId, monthId } = useParams();
+  const { monthId } = useParams();
 
   const [showCheckbox, setShowCheckbox] = useState(false);
   const [error, setError] = useState("");
@@ -24,6 +24,8 @@ const DataPage = () => {
     value,
     month: `${monthId}`,
   };
+
+  const categories = ["Income", "Expense"];
 
   /* ADD DATA */
   const addData = async () => {
@@ -167,7 +169,7 @@ const DataPage = () => {
               required
             >
               <option value="">Select an item</option>
-              {sortedCategories.map((cat) => (
+              {categories.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat}
                 </option>
@@ -215,16 +217,14 @@ const DataPage = () => {
               return <DataBox key={index} oneData={oneData} />;
             })}
 
-            <div className="dataBox">
-              <div className="dataBoxTotal">
-                <section className="dataBoxDescription">
-                  <p>TOTAL</p>
-                </section>
+            <div className="dataBoxTotal">
+              <section className="dataBoxDescription">
+                <p>TOTAL</p>
+              </section>
 
-                <section className="dataBoxValue">
-                  <p>3000 €</p>
-                </section>
-              </div>
+              <section className="dataBoxValue">
+                <p>3000 €</p>
+              </section>
             </div>
           </div>
         );
