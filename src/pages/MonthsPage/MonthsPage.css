@@ -129,8 +129,10 @@ body {
 }
 
 .MonthCard hr {
-  color: #cf7ca3;
-  width: 70%;
+  border: none;
+  height: 1px;
+  background-color: #009688;
+  width: 80%;
 }
 
 .MonthCard h2 {

@@ -97,6 +97,37 @@ const DataPage = () => {
     fetchData();
   }, []);
 
+  const payloadSum = {};
+  const incomeSumFuction = (categoryTotal) => {
+    payloadSum.incomeSum = categoryTotal;
+  };
+  const expenseSumFuction = (categoryTotal) => {
+    payloadSum.expenseSum = categoryTotal;
+  };
+
+  console.log("Slay", payloadSum);
+  const monthUpdate = async (monthId) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/month/${monthId}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(payloadSum),
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.ok) {
+        fetchMonth();
+        fetchData();
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   /* PREVENT DUPLICATE CATEGORIES */
   const handleCreateData = async () => {
     let descriptionExists = false;
@@ -224,6 +255,11 @@ const DataPage = () => {
             <h2>{category}s</h2>
 
             {groupedData[category].map((oneData, index) => {
+              if (category === "Income") {
+                incomeSumFuction(categoryTotal);
+              } else if (category === "Expense") {
+                expenseSumFuction(categoryTotal);
+              }
               return <DataBox key={index} oneData={oneData} />;
             })}
 

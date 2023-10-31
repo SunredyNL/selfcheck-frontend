@@ -20,8 +20,6 @@ const YearsPage = () => {
 
   const [error, setError] = useState("");
 
-  let yearId = "";
-
   const payload = {
     name,
     user: `${currentUser}`,
@@ -143,6 +141,7 @@ const YearsPage = () => {
             );
           })}
       </section>
+      <p>{currentUser}</p>
     </div>
   );
 };
