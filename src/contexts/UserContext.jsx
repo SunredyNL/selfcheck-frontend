@@ -8,7 +8,7 @@ const UserContextProvider = ({ children }) => {
   const { currentUser } = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(true);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([]);
 
   const fetchUserData = async () => {
     setIsLoading(true);

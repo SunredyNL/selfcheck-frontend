@@ -5,8 +5,8 @@ import LoginPage from "./pages/loginpage/LoginPage";
 import HomePage from "./pages/homepage/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import PrivateRoute from "./components/PrivateRoute";
-import YearsPage from "./pages/YearsPage";
-import MonthsPage from "./pages/MonthsPage";
+import YearsPage from "./pages/YearsPage/YearsPage";
+import MonthsPage from "./pages/MonthsPage/MonthsPage";
 import DataPage from "./pages/DataPage";
 
 function App() {
