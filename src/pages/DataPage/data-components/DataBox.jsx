@@ -59,66 +59,74 @@ const DataBox = ({ oneData }) => {
     <div key={oneData._id}>
       <div className="dataBox">
         <div className="dataBoxShown">
-          <section className="dataBoxDescription">
-            <p>{oneData.description}</p>
-          </section>
+          <div>
+            <section className="dataBoxDescription">
+              <p>{oneData.description}</p>
+            </section>
 
-          <section className="dataBoxValue">
-            <p>{oneData.value} €</p>
-          </section>
+            <section className="dataBoxValue">
+              <p>{oneData.value} €</p>
+            </section>
+          </div>
 
-          <section className="dataBoxButton">
-            <button
-              type="button"
-              onClick={() => setShowCheckbox(!showCheckbox)}
-            >
-              {showCheckbox ? "-" : "+"}
-            </button>
-          </section>
-
-          <section className="dataBoxButton">
-            <button
-              type="button"
-              onClick={() => {
-                deleteData(oneData);
-              }}
-            >
-              x
-            </button>{" "}
-          </section>
-        </div>
-
-        <div className="dataBoxHidden">
-          {showCheckbox && (
-            <form className="updateDataForm">
-              <label>
-                Description
-                <input
-                  value={updatedDescription}
-                  onChange={(event) =>
-                    setUpdatedDescription(event.target.value)
-                  }
-                  required
-                />
-              </label>
-
-              <label>
-                Value
-                <input
-                  value={updatedValue}
-                  onChange={(event) => setUpdatedValue(event.target.value)}
-                  required
-                />
-              </label>
-
+          <div>
+            <section className="dataBoxButton">
               <button
-                type="submit"
+                type="button"
+                onClick={() => setShowCheckbox(!showCheckbox)}
+              >
+                {showCheckbox ? "-" : "+"}
+              </button>
+            </section>
+
+            <section className="dataBoxButton">
+              <button
+                type="button"
                 onClick={() => {
-                  dataUpdate(oneData);
+                  deleteData(oneData);
                 }}
               >
-                Update data
-              </button>
+                x
+              </button>{" "}
+            </section>
+          </div>
+        </div>
+
+        <div>
+          {showCheckbox && (
+            <form className="updateDataForm">
+              <div className="updateDataFormText">
+                <label>
+                  <p>Description</p>
+                  <input
+                    value={updatedDescription}
+                    onChange={(event) =>
+                      setUpdatedDescription(event.target.value)
+                    }
+                    required
+                  />
+                </label>
+
+                <label>
+                  <p>Value</p>
+                  <input
+                    value={updatedValue}
+                    onChange={(event) => setUpdatedValue(event.target.value)}
+                    required
+                  />
+                </label>
+              </div>
+
+              <div className="updateDataFormButton">
+                <button
+                  type="submit"
+                  onClick={() => {
+                    dataUpdate(oneData);
+                  }}
+                >
+                  +
+                </button>
+              </div>
             </form>
           )}
         </div>

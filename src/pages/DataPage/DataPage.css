@@ -12,7 +12,8 @@ button {
 
 /* ADD DATA FORM */
 .AddDataFormCheckboxButton {
-  background-color: lightgray;
+  background-color: #ecb939;
+  color: #fbf7f5;
   display: inline-block;
   border: none;
   border-radius: 50%;
@@ -21,6 +22,11 @@ button {
   height: 3rem;
   width: 3rem;
   font-size: 2rem;
+  text-align: center;
+}
+
+.AddDataFormCheckboxButton:hover {
+  background-color: #f0c75e;
 }
 
 .addDataForm {
@@ -56,20 +62,27 @@ button {
 /* DISPLAY DATA*/
 /* SHOWN DATA*/
 .dataTypeBox {
-  border: 1px solid;
+  border: 1px solid lightgray;
   margin: 1rem;
   padding: 1rem;
   width: 80vw;
 }
 
+.dataTypeBox button {
+  height: 1.3rem;
+  width: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .dataBox {
-  border: 1px solid;
-  margin: 0.2rem 0 0.2rem;
+  border: 1px solid lightgray;
+  margin: 0.4rem 0 0.4rem;
   padding: 0 1rem 0;
 }
 
 .dataBox section {
-  background-color: azure;
   height: 1.7rem;
   display: flex;
   align-items: center;
@@ -79,31 +92,65 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+}
+
+.dataBoxShown div {
+  display: flex;
+}
+
+.dataBoxTotal {
+  display: flex;
+  font-weight: bold;
 }
 
 .dataBoxDescription {
-  width: 10rem;
+  width: 8rem;
+  margin-right: 0.5rem;
 }
 
 .dataBoxValue {
-  width: 4rem;
+  width: 5rem;
 }
 
 .dataBoxButton {
   justify-content: end;
+  margin-left: 0.5rem;
 }
 
-/* DISPLAY DATA*/
-.dataBoxHidden {
-  display: flex;
-  flex-direction: column;
-}
-
+/* DATA HIDDEN */
 .dataBoxHidden input {
   width: 5rem;
 }
 
 .updateDataForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.updateDataFormText {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateDataFormText label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0 0.5rem;
+  height: 1rem;
+}
+
+.updateDataFormText p {
+  margin-right: 1rem;
+}
+
+.updateDataFormText input {
+  width: 7rem;
+}
+
+.updateDataFormButton {
   display: flex;
   flex-direction: column;
 }
