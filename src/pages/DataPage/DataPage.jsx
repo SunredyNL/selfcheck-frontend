@@ -143,7 +143,11 @@ const DataPage = () => {
 
   return (
     <div className="dataPageBox">
-      <h1>{months.find((m) => m._id === monthId)?.name}</h1>
+      {months.map((element) => {
+        if (element._id === monthId) {
+          return <h1 key={element._id}>{element.name}</h1>;
+        }
+      })}
 
       <button
         type="button"

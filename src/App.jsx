@@ -12,7 +12,7 @@ import DataPage from "./pages/DataPage/DataPage";
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
