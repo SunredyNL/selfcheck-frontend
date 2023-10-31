@@ -39,8 +39,9 @@ const DataPage = () => {
         body: JSON.stringify(payload),
       });
       if (response.ok) {
-        const currData = await response.json();
-        console.log(currData);
+        monthUpdate();
+        fetchMonth();
+        fetchData();
       }
     } catch (error) {
       console.log(error);
@@ -97,16 +98,20 @@ const DataPage = () => {
     fetchData();
   }, []);
 
-  const payloadSum = {};
+  const [payloadSum, setPayloadSum] = useState({ expenseSum: 0, incomeSum: 0 });
+
   const incomeSumFuction = (categoryTotal) => {
     payloadSum.incomeSum = categoryTotal;
+    console.log(payloadSum.incomeSum);
   };
   const expenseSumFuction = (categoryTotal) => {
     payloadSum.expenseSum = categoryTotal;
+    console.log(payloadSum.expenseSum);
   };
 
   console.log("Slay", payloadSum);
-  const monthUpdate = async (monthId) => {
+
+  const monthUpdate = async () => {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/month/${monthId}`,
@@ -239,6 +244,7 @@ const DataPage = () => {
             type="button"
             onClick={() => {
               handleCreateData();
+              /* monthUpdate(); */
             }}
           >
             add data
@@ -246,7 +252,6 @@ const DataPage = () => {
           {error && <p className="error-message">{error}</p>}
         </form>
       )}
-
       {sortedCategories.map((category) => {
         const categoryTotal = calculateCategoryTotal(category);
 
@@ -256,11 +261,18 @@ const DataPage = () => {
 
             {groupedData[category].map((oneData, index) => {
               if (category === "Income") {
-                incomeSumFuction(categoryTotal);
+                incomeSumFuction(categoryTotal, category);
               } else if (category === "Expense") {
-                expenseSumFuction(categoryTotal);
+                expenseSumFuction(categoryTotal, category);
               }
-              return <DataBox key={index} oneData={oneData} />;
+              return (
+                <DataBox
+                  key={index}
+                  oneData={oneData}
+                  monthUpdate={monthUpdate}
+                  fetchData={fetchData}
+                />
+              );
             })}
 
             <div className="dataBoxTotal">

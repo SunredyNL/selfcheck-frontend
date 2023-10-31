@@ -3,12 +3,14 @@ import editIcon from "../../../assets/edit.png";
 import trashIcon from "../../../assets/trash.png";
 import updateIcon from "../../../assets/update.png";
 
-const DataBox = ({ oneData }) => {
+const DataBox = ({ oneData, monthUpdate, fetchData }) => {
   const token = localStorage.getItem("authToken");
 
   const [showCheckbox, setShowCheckbox] = useState(false);
 
-  const [updatedDescription, setUpdatedDescription] = useState(oneData.description);
+  const [updatedDescription, setUpdatedDescription] = useState(
+    oneData.description
+  );
   const [updatedValue, setUpdatedValue] = useState(oneData.value);
 
   const updatedPayload = {
@@ -31,7 +33,8 @@ const DataBox = ({ oneData }) => {
       );
       if (response.ok) {
         await response.json();
-        location.reload();
+        fetchData();
+        monthUpdate();
       }
     } catch (error) {
       console.error(error);
@@ -51,7 +54,7 @@ const DataBox = ({ oneData }) => {
         }
       );
       if (response.ok) {
-        location.reload();
+        fetchData();
       }
     } catch (error) {
       console.log(error);
@@ -88,6 +91,7 @@ const DataBox = ({ oneData }) => {
               type="button"
               onClick={() => {
                 deleteData(oneData);
+                monthUpdate();
               }}
               className="dataBoxButton"
               data-category={oneData.category}
