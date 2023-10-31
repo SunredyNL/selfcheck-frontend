@@ -55,6 +55,7 @@ const MonthsPage = () => {
       );
       if (response.ok) {
         fetchMonth();
+        fetchYears();
       }
     } catch (error) {
       console.log(error);
@@ -76,7 +77,7 @@ const MonthsPage = () => {
       );
       if (response.ok) {
         const allMonths = await response.json();
-        console.log("chicorita", allMonths);
+        console.log("chicorita-months", allMonths);
         setMonths(allMonths);
       }
     } catch (error) {
@@ -98,6 +99,7 @@ const MonthsPage = () => {
       );
       if (response.ok) {
         fetchMonth();
+        fetchYears();
       }
     } catch (error) {
       console.log(error);
@@ -170,13 +172,19 @@ const MonthsPage = () => {
             <div key={oneMonth._id} className="MonthCard">
               <Link to={`/user/${oneMonth._id}/data`}>
                 <h2>{oneMonth.name}</h2>
+                <hr />
                 <p>Income: 20.000€</p>
                 <p>Expenses: 12.000€</p>
               </Link>
               <button
                 type="button"
                 onClick={() => {
-                  deleteMonth(oneMonth);
+                  const confirmed = window.confirm(
+                    `Do you really want to delete ${oneMonth.name}?`
+                  );
+                  if (confirmed) {
+                    deleteMonth(oneMonth);
+                  }
                 }}
               >
                 <img src={trashIcon} />
