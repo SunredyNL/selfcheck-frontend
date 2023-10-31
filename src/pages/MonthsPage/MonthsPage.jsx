@@ -4,6 +4,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Link, useParams } from "react-router-dom";
 import trashIcon from "../../assets/trash.png";
 import AddMonthExpand from "./AddMonthExpand";
+import backArrow from "../../assets/back.png";
 
 const MonthsPage = () => {
   const token = localStorage.getItem("authToken");
@@ -141,11 +142,17 @@ const MonthsPage = () => {
 
   return (
     <div>
-      {years.map((element) => {
-        if (element._id === yearId) {
-          return <h1 key={element._id}>{element.name}</h1>;
-        }
-      })}
+      <section className="MonthHeader">
+        <Link to={`/user/years`}>
+          <img src={backArrow} />
+        </Link>
+        {years.map((element) => {
+          if (element._id === yearId) {
+            return <h1 key={element._id}>{element.name}</h1>;
+          }
+        })}
+      </section>
+
       <AddMonthExpand
         addMonth={addMonth}
         name={name}

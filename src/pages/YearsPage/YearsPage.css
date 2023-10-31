@@ -4,8 +4,29 @@ body {
   background-color: #fbf7f5;
 }
 
+.YearHeader {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.YearHeader a {
+  position: absolute;
+  left: 1rem;
+}
+
+.YearHeader img {
+  height: 1.5rem;
+}
+
 h1 {
   font-size: 52px;
+}
+
+h2 {
+  color: black;
 }
 
 .AddYearFormCheckbox {
