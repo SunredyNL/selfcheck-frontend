@@ -41,7 +41,7 @@ const SignupPage = () => {
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               required
-              placeholder="email"
+              placeholder="username"
             />
           </label>
 

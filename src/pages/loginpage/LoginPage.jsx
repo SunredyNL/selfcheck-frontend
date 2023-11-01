@@ -34,7 +34,7 @@ const LoginPage = () => {
       if (response.status === 200) {
         const parsed = await response.json();
         handleLogin(parsed.token);
-        navigate(`/user/profile`);
+        navigate(`/`);
       }
     } catch (error) {
       console.log(error);

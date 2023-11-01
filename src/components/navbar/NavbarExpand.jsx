@@ -38,12 +38,8 @@ const NavbarExpand = ({
             {isAuthenticated && (
               <>
                 <li>
-                  <Link to={`/user/profile`}>Profile</Link>
-                </li>
-                <li>
                   <Link to={`/user/years`}>Budget Track</Link>
                 </li>
-
                 <button
                   className="logoutBtn"
                   onClick={() => {

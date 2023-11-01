@@ -75,7 +75,6 @@ body {
 }
 @media screen and (min-width: 768px) {
   .container {
-    margin-top: 3.7vh;
     display: flex;
     align-content: center;
     margin-left: 30vw;
@@ -90,6 +89,13 @@ body {
     align-items: center;
     background-color: #fbfbfb;
     border: solid 1px #ecb939;
+  }
+  .welcomeMsg {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .name {
+    text-transform: capitalize;
   }
   .buttons {
     display: flex;
@@ -119,6 +125,14 @@ body {
   }
   .HPbtn:hover {
     background-color: #009688;
+  }
+  #deleteUser {
+    margin-top: 10vh;
+    height: 3vh;
+    background-color: red;
+  }
+  #deleteUser:hover {
+    background-color: darkred;
   }
   .comments {
     gap: 3vw;

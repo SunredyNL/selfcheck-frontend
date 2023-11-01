@@ -8,6 +8,9 @@ body {
   body {
     font-size: 0.5rem;
   }
+  .Navbar {
+    position: fixed;
+  }
   .navbarBtn {
     width: 10vw;
     height: 5vh;
@@ -33,7 +36,6 @@ body {
     list-style: none;
   }
   .nav li {
-    margin: 1px 0;
     border-radius: 0px 200px 200px 0px;
     -webkit-border-radius: 0px 200px 200px 0px;
     -moz-border-radius: 0px 200px 200px 0px;
@@ -80,6 +82,9 @@ body {
   body {
     font-size: 1rem;
   }
+  .Navbar {
+    position: fixed;
+  }
   .navbarBtn {
     width: 3vw;
     height: 5vh;
@@ -106,7 +111,6 @@ body {
     text-decoration: none;
   }
   .nav li {
-    margin: 1px 0;
     border-radius: 0px 200px 200px 0px;
     -webkit-border-radius: 0px 200px 200px 0px;
     -moz-border-radius: 0px 200px 200px 0px;

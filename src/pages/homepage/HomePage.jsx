@@ -1,11 +1,57 @@
 import "./HomePage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import SavingGif from "../../assets/saving.gif";
 const HomePage = () => {
+  const token = localStorage.getItem("authToken");
+  const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const { isAuthenticated } = useContext(AuthContext);
+  const [user, setUser] = useState({});
+  const fetchUser = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/user/${currentUser}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.ok) {
+        const parsed = await response.json();
+        setUser(parsed.user);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const deleteUser = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/user/${currentUser}`,
+        {
+          method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.ok) {
+        localStorage.removeItem("authToken");
+        navigate(`/signup`);
+        window.location.reload(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchUser();
+  }, []);
   //fake comments
   const comments = [
     {
@@ -46,9 +92,22 @@ const HomePage = () => {
 
         {isAuthenticated && (
           <div className="buttons">
-            <Link to="/user/profile">
-              <button className="HPbtn">Profile</button>
+            <p className="welcomeMsg">
+              Hey <span className="name">{user.username}</span>!
+            </p>
+            <Link to="/user/years">
+              <button className="HPbtn">Budget Track</button>
             </Link>
+            <button
+              className="HPbtn"
+              id="deleteUser"
+              type="button"
+              onClick={() => {
+                deleteUser();
+              }}
+            >
+              Delete user
+            </button>
           </div>
         )}
       </div>
