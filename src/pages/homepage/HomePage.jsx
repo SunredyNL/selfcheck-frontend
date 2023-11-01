@@ -103,7 +103,12 @@ const HomePage = () => {
               id="deleteUser"
               type="button"
               onClick={() => {
-                deleteUser();
+                const confirmed = window.confirm(
+                  `Do you really want to delete your account?`
+                );
+                if (confirmed) {
+                  deleteUser();
+                }
               }}
             >
               Delete user
