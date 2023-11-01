@@ -16,7 +16,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div>
+      <div className="Navbar">
         <NavbarExpand
           handleLogout={handleLogout}
           showCheckbox={showCheckbox}

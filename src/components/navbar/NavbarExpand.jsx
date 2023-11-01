@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import menuIcon from "../../assets/menu.png";
 import "./Navbar.css";
 const NavbarExpand = ({
   showCheckbox,
@@ -7,8 +8,6 @@ const NavbarExpand = ({
   handleLogout,
   isAuthenticated,
 }) => {
-  const selectRef = useRef(null);
-
   return (
     <section>
       <button
@@ -16,7 +15,7 @@ const NavbarExpand = ({
         type="button"
         onClick={() => setshowCheckbox(!showCheckbox)}
       >
-        {showCheckbox ? "| | |" : "| | |"}
+        <img src={menuIcon}></img>
       </button>
       {showCheckbox && (
         <div className="left">

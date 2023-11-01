@@ -3,7 +3,7 @@ import editIcon from "../../../assets/edit.png";
 import trashIcon from "../../../assets/trash.png";
 import updateIcon from "../../../assets/update.png";
 
-const DataBox = ({ oneData, monthUpdate, fetchData }) => {
+const DataBox = ({ oneData, fetchData }) => {
   const token = localStorage.getItem("authToken");
 
   const [showCheckbox, setShowCheckbox] = useState(false);
@@ -34,7 +34,6 @@ const DataBox = ({ oneData, monthUpdate, fetchData }) => {
       if (response.ok) {
         await response.json();
         fetchData();
-        monthUpdate();
       }
     } catch (error) {
       console.error(error);
@@ -91,7 +90,6 @@ const DataBox = ({ oneData, monthUpdate, fetchData }) => {
               type="button"
               onClick={() => {
                 deleteData(oneData);
-                monthUpdate();
               }}
               className="dataBoxButton"
               data-category={oneData.category}

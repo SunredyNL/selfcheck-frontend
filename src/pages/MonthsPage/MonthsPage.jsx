@@ -174,8 +174,8 @@ const MonthsPage = () => {
               <Link to={`/user/${oneMonth._id}/data`}>
                 <h2>{oneMonth.name}</h2>
                 <hr />
-                <p>Income: 20.000€</p>
-                <p>Expenses: 12.000€</p>
+                <p>Income: {oneMonth.incomeSum}€</p>
+                <p>Expenses: {oneMonth.expenseSum}€</p>
               </Link>
               <button
                 type="button"

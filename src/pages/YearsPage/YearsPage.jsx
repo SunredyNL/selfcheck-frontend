@@ -119,8 +119,8 @@ const YearsPage = () => {
                 <Link to={`/user/${oneYear._id}/months`}>
                   <div>
                     <h2>{oneYear.name}</h2>
-                    <p>Income: 20.000€</p>
-                    <p>Expenses: 12.000€</p>
+                    <p>Income: {oneYear.monthIncomeSum}€</p>
+                    <p>Expenses: {oneYear.monthExpenseSum}€</p>
                     <p>Months tracked: {trackedMonths.length}</p>
                   </div>
                 </Link>
@@ -141,7 +141,6 @@ const YearsPage = () => {
             );
           })}
       </section>
-      <p>{currentUser}</p>
     </div>
   );
 };

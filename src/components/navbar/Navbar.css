@@ -16,6 +16,13 @@ body {
     border-color: #ecb939;
     color: #ecb939;
   }
+
+  .navbarBtn img {
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+  }
+
   .left {
     width: 20%;
     float: left;
@@ -81,6 +88,13 @@ body {
     border-color: #ecb939;
     color: black;
   }
+
+  .navbarBtn img {
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+  }
+
   .left {
     width: 20%;
     float: left;

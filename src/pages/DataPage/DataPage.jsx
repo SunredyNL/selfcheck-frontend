@@ -29,6 +29,7 @@ const DataPage = () => {
 
   /* ADD DATA */
   const addData = async () => {
+    console.log("Payload", payload);
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/data`, {
         method: "POST",
@@ -39,7 +40,6 @@ const DataPage = () => {
         body: JSON.stringify(payload),
       });
       if (response.ok) {
-        monthUpdate();
         fetchMonth();
         fetchData();
       }
@@ -97,41 +97,6 @@ const DataPage = () => {
     fetchMonth();
     fetchData();
   }, []);
-
-  const [payloadSum, setPayloadSum] = useState({ expenseSum: 0, incomeSum: 0 });
-
-  const incomeSumFuction = (categoryTotal) => {
-    payloadSum.incomeSum = categoryTotal;
-    console.log(payloadSum.incomeSum);
-  };
-  const expenseSumFuction = (categoryTotal) => {
-    payloadSum.expenseSum = categoryTotal;
-    console.log(payloadSum.expenseSum);
-  };
-
-  console.log("Slay", payloadSum);
-
-  const monthUpdate = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/month/${monthId}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(payloadSum),
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      if (response.ok) {
-        fetchMonth();
-        fetchData();
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   /* PREVENT DUPLICATE CATEGORIES */
   const handleCreateData = async () => {
@@ -244,7 +209,6 @@ const DataPage = () => {
             type="button"
             onClick={() => {
               handleCreateData();
-              /* monthUpdate(); */
             }}
           >
             add data
@@ -260,18 +224,8 @@ const DataPage = () => {
             <h2>{category}s</h2>
 
             {groupedData[category].map((oneData, index) => {
-              if (category === "Income") {
-                incomeSumFuction(categoryTotal, category);
-              } else if (category === "Expense") {
-                expenseSumFuction(categoryTotal, category);
-              }
               return (
-                <DataBox
-                  key={index}
-                  oneData={oneData}
-                  monthUpdate={monthUpdate}
-                  fetchData={fetchData}
-                />
+                <DataBox key={index} oneData={oneData} fetchData={fetchData} />
               );
             })}
 
