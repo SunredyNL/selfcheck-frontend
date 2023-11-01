@@ -94,7 +94,7 @@ const YearsPage = () => {
   return (
     <div>
       <section className="YearHeader">
-        <Link to={`/user/profile`}>
+        <Link to={`/`}>
           <img src={backArrow} />
         </Link>
         <h1>Overview</h1>

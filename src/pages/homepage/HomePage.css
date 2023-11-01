@@ -54,8 +54,18 @@ body {
     line-height: 1.15;
     font-size: 2rem;
     width: 60vw;
-    height: 10vh;
+    height: auto;
   }
+
+  #deleteUser {
+    margin-top: 3vh;
+    height: auto;
+    background-color: red;
+  }
+  #deleteUser:hover {
+    background-color: darkred;
+  }
+
   .comments {
     margin-top: 3vh;
     display: flex;
@@ -128,7 +138,7 @@ body {
   }
   #deleteUser {
     margin-top: 10vh;
-    height: 3vh;
+    height: auto;
     background-color: red;
   }
   #deleteUser:hover {
