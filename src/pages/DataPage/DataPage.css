@@ -12,8 +12,27 @@ button {
 }
 
 .dataPageBox h1 {
-  margin: 1rem 0 1rem;
-  font-size: 2.5rem;
+  font-size: 48px;
+}
+
+.dataHeader {
+  width: 71.5%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.dataHeader a {
+  position: absolute;
+  top: 50%;
+  left: 0rem;
+}
+
+.dataHeader img {
+  height: 1.5rem;
 }
 
 /* ADD DATA FORM */
@@ -66,14 +85,14 @@ button {
 .addDataForm button {
   width: 4.5rem;
   appearance: none;
-  border:none;
+  border: none;
   border-radius: 1rem;
   background-color: gray;
   color: white;
   margin-top: 0.5rem;
 }
 
-.addDataForm button:hover{
+.addDataForm button:hover {
   background-color: lightgray;
 }
 

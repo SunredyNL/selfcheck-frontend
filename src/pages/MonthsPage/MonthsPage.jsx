@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import trashIcon from "../../assets/trash.png";
 import AddMonthExpand from "./AddMonthExpand";
 import backArrow from "../../assets/back.png";
-import { UserContext } from "../../contexts/UserContext";
 
 const MonthsPage = () => {
   const token = localStorage.getItem("authToken");

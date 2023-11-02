@@ -1,12 +1,13 @@
 import "./DataPage.css";
 import DataBox from "./data-components/DataBox";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import backArrow from "../../assets/back.png";
 
 const DataPage = () => {
   const token = localStorage.getItem("authToken");
 
-  const { monthId } = useParams();
+  const { yearId, monthId } = useParams();
 
   const [showCheckbox, setShowCheckbox] = useState(false);
   const [error, setError] = useState("");
@@ -154,11 +155,21 @@ const DataPage = () => {
 
   return (
     <div className="dataPageBox">
-      {months.map((element) => {
-        if (element._id === monthId) {
-          return <h1 key={element._id}>{element.name}</h1>;
-        }
-      })}
+      <section className="dataHeader">
+        {months.map((element) => {
+          if (element._id === monthId) {
+            return (
+              <div key={element._id}>
+                <Link to={`/user/${element.year}/months`} className="backArrow">
+                  <img src={backArrow} />
+                </Link>
+
+                <h1>{element.name}</h1>
+              </div>
+            );
+          }
+        })}
+      </section>
 
       <button
         type="button"
