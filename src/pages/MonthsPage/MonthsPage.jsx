@@ -145,12 +145,18 @@ const MonthsPage = () => {
   return (
     <div>
       <section className="MonthHeader">
-        <Link to={`/user/years`}>
-          <img src={backArrow} />
-        </Link>
         {years.map((element) => {
           if (element._id === yearId) {
-            return <h1 key={element._id}>{element.name}</h1>;
+            return (
+              <>
+                <Link to={`/user/years`}>
+                  <img src={backArrow} />
+                </Link>
+
+                <h1 key={element._id}>{element.name}</h1>
+                <div />
+              </>
+            );
           }
         })}
       </section>

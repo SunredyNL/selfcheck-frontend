@@ -97,8 +97,12 @@ const YearsPage = () => {
         <Link to={`/`}>
           <img src={backArrow} />
         </Link>
+
         <h1>Overview</h1>
+
+        <div />
       </section>
+
       <AddYearExpand
         addYear={addYear}
         name={name}
@@ -109,6 +113,7 @@ const YearsPage = () => {
         error={error}
         setError={setError}
       />
+
       <section className="MultiYearCards">
         {years
           .sort((a, b) => b.name - a.name)

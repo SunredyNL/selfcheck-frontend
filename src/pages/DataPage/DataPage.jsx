@@ -155,78 +155,83 @@ const DataPage = () => {
 
   return (
     <div className="dataPageBox">
-      <section className="dataHeader">
+      <section>
         {months.map((element) => {
           if (element._id === monthId) {
             return (
-              <div key={element._id}>
+              <div key={element._id} className="dataHeader">
                 <Link to={`/user/${element.year}/months`} className="backArrow">
                   <img src={backArrow} />
                 </Link>
 
                 <h1>{element.name}</h1>
+
+                <div />
               </div>
             );
           }
         })}
       </section>
 
-      <button
-        type="button"
-        onClick={() => setShowCheckbox(!showCheckbox)}
-        className="AddDataFormCheckboxButton"
-      >
-        {showCheckbox ? "-" : "+"}
-      </button>
+      <section className="AddDataFormCheckbox">
+        <button
+          type="button"
+          onClick={() => setShowCheckbox(!showCheckbox)}
+          className="AddDataFormCheckboxButton"
+        >
+          {showCheckbox ? "-" : "+"}
+        </button>
 
-      {showCheckbox && (
-        <form className="addDataForm">
-          <label>
-            <p>Type</p>
-            <select
-              value={category}
-              onChange={(event) => setCategory(event.target.value)}
-              required
+        {showCheckbox && (
+          <form className="addDataForm">
+            <label>
+              <p>Type</p>
+              <select
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}
+                required
+              >
+                <option value="">Select an item</option>
+                {categories.map((cat) => (
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              <p>Description</p>
+              <input
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                maxLength={11}
+                required
+              />
+            </label>
+
+            <label>
+              <p>Value</p>
+              <input
+                value={value}
+                onChange={(event) => setValue(event.target.value)}
+                required
+              />
+            </label>
+
+            <button
+              type="button"
+              onClick={() => {
+                handleCreateData();
+              }}
             >
-              <option value="">Select an item</option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select>
-          </label>
+              add data
+            </button>
+            {error && <p className="error-message">{error}</p>}
+          </form>
+        )}
+      </section>
 
-          <label>
-            <p>Description</p>
-            <input
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              maxLength={11}
-              required
-            />
-          </label>
-
-          <label>
-            <p>Value</p>
-            <input
-              value={value}
-              onChange={(event) => setValue(event.target.value)}
-              required
-            />
-          </label>
-
-          <button
-            type="button"
-            onClick={() => {
-              handleCreateData();
-            }}
-          >
-            add data
-          </button>
-          {error && <p className="error-message">{error}</p>}
-        </form>
-      )}
       {sortedCategories.map((category) => {
         const categoryTotal = calculateCategoryTotal(category);
 

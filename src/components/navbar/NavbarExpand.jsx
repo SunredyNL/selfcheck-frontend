@@ -36,19 +36,14 @@ const NavbarExpand = ({
             )}
 
             {isAuthenticated && (
-              <>
+              <div className="nav">
                 <li>
                   <Link to={`/user/years`}>Budget Track</Link>
                 </li>
-                <button
-                  className="logoutBtn"
-                  onClick={() => {
-                    handleLogout();
-                  }}
-                >
-                  Sign out
-                </button>
-              </>
+                <li className="budgetTrackButton">
+                  <Link onClick={() => handleLogout()}>Sign out</Link>
+                </li>
+              </div>
             )}
           </ul>
         </div>

@@ -11,28 +11,22 @@ button {
   padding: 0;
 }
 
-.dataPageBox h1 {
-  font-size: 48px;
-}
-
 .dataHeader {
-  width: 71.5%;
+  width: 100vw;
   display: flex;
-  flex-direction: row;
-  position: relative;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+  justify-content: space-around;
+  margin: 0;
 }
 
-.dataHeader a {
-  position: absolute;
-  top: 50%;
-  left: 0rem;
-}
-
+.dataHeader div,
 .dataHeader img {
   height: 1.5rem;
+}
+
+.dataHeader h1 {
+  font-size: 2.5rem;
+  width: 15rem;
 }
 
 /* ADD DATA FORM */
@@ -77,9 +71,12 @@ button {
   margin: 0.5rem;
 }
 
-.addDataForm label input,
-.addDataForm label select {
+.addDataForm label input {
   width: 7rem;
+}
+
+.addDataForm label select {
+  width: 7.5rem;
 }
 
 .addDataForm button {
