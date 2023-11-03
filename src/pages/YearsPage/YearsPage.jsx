@@ -59,7 +59,6 @@ const YearsPage = () => {
       );
       if (response.ok) {
         const allYears = await response.json();
-        console.log("chicorita", allYears);
         setYears(allYears);
       }
     } catch (error) {

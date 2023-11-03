@@ -52,7 +52,6 @@ const HomePage = () => {
   useEffect(() => {
     fetchUser();
   }, []);
-  //fake comments
   const comments = [
     {
       name: "Dwarves",
@@ -70,7 +69,6 @@ const HomePage = () => {
       what: `"Super handy! Will for sure use during my ruling."`,
     },
   ];
-  console.log(comments);
   return (
     <>
       <div className="container">
