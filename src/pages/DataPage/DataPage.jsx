@@ -30,7 +30,6 @@ const DataPage = () => {
 
   /* ADD DATA */
   const addData = async () => {
-    console.log("Payload", payload);
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/data`, {
         method: "POST",
@@ -64,7 +63,6 @@ const DataPage = () => {
       );
       if (response.ok) {
         const allMonths = await response.json();
-        console.log("totodile", allMonths);
         setMonths(allMonths);
       }
     } catch (error) {
@@ -86,7 +84,6 @@ const DataPage = () => {
       );
       if (response.ok) {
         const allData = await response.json();
-        console.log("chicorita", allData);
         setData(allData);
       }
     } catch (error) {

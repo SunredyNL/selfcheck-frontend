@@ -77,7 +77,6 @@ const MonthsPage = () => {
       );
       if (response.ok) {
         const allMonths = await response.json();
-        console.log("chicorita-months", allMonths);
         setMonths(allMonths);
       }
     } catch (error) {
@@ -121,7 +120,6 @@ const MonthsPage = () => {
       );
       if (response.ok) {
         const allYears = await response.json();
-        console.log("chicorita", allYears);
         setYears(allYears);
       }
     } catch (error) {

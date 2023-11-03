@@ -23,7 +23,6 @@ const UserContextProvider = ({ children }) => {
       );
       if (response.ok) {
         const parsed = await response.json();
-        console.log("Beautiful", parsed);
         setUserData(parsed);
       }
     } catch (error) {

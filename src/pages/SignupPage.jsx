@@ -22,8 +22,7 @@ const SignupPage = () => {
         }
       );
       if (response.status === 201) {
-        const parsed = await response.json();
-        console.log(parsed);
+        await response.json();
         navigate("/login");
       }
     } catch (error) {
